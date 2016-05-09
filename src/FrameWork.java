@@ -235,9 +235,9 @@ public class FrameWork extends JFrame {
 				binaryPeople.build(hashingPeople.getPersonArray());
 				
 				matchResult = searchBar.getText();
-				System.out.println(binaryPeople.containString(matchResult));
+				System.out.println(binaryPeople.contains(matchResult));
 				String[] sMatch = matchResult.split(" ");
-				if( binaryPeople.containString(matchResult))
+				if( binaryPeople.contains(matchResult))
 				{
 					System.out.println("come in");
 					for(int i = 0; i < result.size(); i++)
