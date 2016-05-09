@@ -46,8 +46,6 @@ public class readFile {
 					}
 					in.close();			
 						
-
-
 					for(Person person: Hashing.people){
 						if(person != null) storeAllList.add(person.toString());
 					}

@@ -208,7 +208,6 @@ public class FrameWork extends JFrame {
 		
 		final JFrame nameFrame = new JFrame(" RESULT ");
 		nameFrame.setLayout(new BorderLayout());
-		nameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		final JLabel res = new JLabel();
 			
 		final JTextField searchBar = new JTextField("Enter Name", 10);
@@ -219,6 +218,7 @@ public class FrameWork extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				
 				boolean first = false;
 				boolean second = false;
@@ -274,7 +274,7 @@ public class FrameWork extends JFrame {
 					}		
 					int row2 = count;
 					resultField2.setLayout(new GridLayout(count,column));
-
+					
 					for(int i = 0; i < j.size(); i++)
 					{
 						comeOut2 = new JLabel();
@@ -282,9 +282,15 @@ public class FrameWork extends JFrame {
 						resultField2.add(comeOut2);
 					}
 				}
+				else
+				{
+					comeOut2 = new JLabel();
+					comeOut2.setText("There is no match found");
+					resultField2.add(comeOut2);
+				}
 				nameFrame.add(titleField2,BorderLayout.NORTH);
 				nameFrame.add(resultField2,BorderLayout.CENTER);
-				//nameFrame.setSize(400, 1000);
+				nameFrame.setSize(400, 1000);
 				nameFrame.pack();
 				nameFrame.setVisible(true);
 			}
