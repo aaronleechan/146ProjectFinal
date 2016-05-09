@@ -13,7 +13,9 @@ public class FrameWork extends JFrame {
 	ArrayList<String> resultValue = new ArrayList<String>();
 	JPanel resultField;
 	JPanel resultFieldColumn;
+	JPanel resultField2;
 	JLabel comeOut;
+	JLabel comeOut2;
 	boolean checkName = false;
 	Hashing hashingPeople;
 	public String matchResult;
@@ -44,7 +46,6 @@ public class FrameWork extends JFrame {
 		final JPanel buttonKeys = new JPanel(new FlowLayout());
 		//buttonKeys.add(new JLabel());
 		
-		
 		// Title Print Out
 		final JPanel titleField = new JPanel();
 		titleField.setLayout(new GridLayout(0,column));
@@ -54,18 +55,16 @@ public class FrameWork extends JFrame {
 		{
 			titleField.add(new JLabel(title[i]));
 		}
-		/////////////////////////////////////////////////////////////////////////
+
 		resultField = new JPanel();
 		resultField.setLayout(new GridLayout(row,column));
         
-		
-		
+
 		// Merge Sort weight
 				JButton original = new JButton("Sort by id");
 				buttonKeys.add(original);
 				original.addActionListener(new ActionListener() {
 					
-
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
@@ -104,7 +103,7 @@ public class FrameWork extends JFrame {
 		JButton quickSortButton = new JButton("Height Sort");
 		buttonKeys.add(quickSortButton);
 		quickSortButton.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
@@ -123,15 +122,13 @@ public class FrameWork extends JFrame {
 					{
 						resultValue.add(sS);
 					}
-				}
-				
+				}			
 				for(int i = 0; i < resultValue.size(); i++)
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
 					resultField.add(comeOut);
-				}
-				
+				}		
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
@@ -183,16 +180,12 @@ public class FrameWork extends JFrame {
 			
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				resultValue.clear();
-				
+			public void actionPerformed(ActionEvent e) {		
+				resultValue.clear();	
 				result = presenter.mergeSortList;
 				resultField.repaint();
 				resultField = new JPanel();
-		
-				resultField.setLayout(new GridLayout(row,column));	
-				
+				resultField.setLayout(new GridLayout(row,column));		
 				for(int i = 0; i < result.size(); i++)
 				{
 					String[] s = result.get(i).split(" ");
@@ -200,28 +193,24 @@ public class FrameWork extends JFrame {
 					{
 						resultValue.add(sS);
 					}
-				}
-				
+				}	
 				for(int i = 0; i < resultValue.size(); i++)
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
 					resultField.add(comeOut);
-				}
-				
+				}		
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
 			}
-
 		});
 		
 		final JFrame nameFrame = new JFrame(" RESULT ");
-		nameFrame.setLayout(new FlowLayout());
+		nameFrame.setLayout(new BorderLayout());
 		nameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		final JLabel res = new JLabel();
-		
-		
+			
 		final JTextField searchBar = new JTextField("Enter Name", 10);
 		buttonKeys.add(searchBar);
 		JButton searchButton = new JButton("Search");
@@ -230,33 +219,62 @@ public class FrameWork extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+							
+				resultField2 = new JPanel();
+					
+				ArrayList<String> j = new ArrayList<String>();
+				
+				 JPanel titleField2 = new JPanel();
+				titleField2.setLayout(new GridLayout(0,column));
+				titleField2.setSize(100, 100);
+		
+				for(int i = 0; i < title.length; i++)
+				{
+					titleField2.add(new JLabel(title[i]));
+				}
+					
 				ArrayList<String> sou = new ArrayList<String>();
 				BST binaryPeople = new BST();
 				binaryPeople.build(hashingPeople.getPersonArray());
-				
+				int count = 0;
 				matchResult = searchBar.getText();
 				System.out.println(binaryPeople.containString(matchResult));
 				String[] sMatch = matchResult.split(" ");
 				if( binaryPeople.containString(matchResult))
 				{
-					System.out.println("come in");
+
 					for(int i = 0; i < result.size(); i++)
 					{
 						String[] splitS = result.get(i).split(" "); 
 						for(String s : splitS)
 						{
-							if(s.contains(sMatch[0]) || s.contains(sMatch[1]))
+							if(s.contains(sMatch[0]))
 							{
-								res.setText(result.get(i));
+								String[] rest = result.get(i).split(" ");
+								String out="";
+								for(String abc : rest)
+								{
+									j.add(abc);
+								}
+								count++;
 							}
 						}						
-					}					
+					}		
+					int row2 = count;
+					resultField2.setLayout(new GridLayout(count,column));
+
+					for(int i = 0; i < j.size(); i++)
+					{
+						comeOut2 = new JLabel();
+						comeOut2.setText(j.get(i));
+						resultField2.add(comeOut2);
+					}
 				}
-				nameFrame.add(res);
+				nameFrame.add(titleField2,BorderLayout.NORTH);
+				nameFrame.add(resultField2,BorderLayout.CENTER);
 				nameFrame.setSize(300, 300);
 				nameFrame.pack();
 				nameFrame.setVisible(true);
-				
 			}
 		});
 		
@@ -284,9 +302,8 @@ public class FrameWork extends JFrame {
 		theFrame.add(sideBar,BorderLayout.CENTER);
 		theFrame.add(buttonKeys, BorderLayout.SOUTH);
 		theFrame.add(titleField,BorderLayout.NORTH);		
-		//try{ theFrame.add(resultField, BorderLayout.CENTER);}
-		//catch(Exception e){	e.printStackTrace(); }
-		
+		try{ theFrame.add(resultField, BorderLayout.CENTER);}
+		catch(Exception e){	e.printStackTrace(); }
 		theFrame.setSize(800, 900);
 		theFrame.setVisible(true);
 
