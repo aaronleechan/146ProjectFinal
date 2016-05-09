@@ -219,6 +219,9 @@ public class FrameWork extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				boolean first = false;
+				boolean second = false;
 							
 				resultField2 = new JPanel();
 					
@@ -250,6 +253,15 @@ public class FrameWork extends JFrame {
 						{
 							if(s.contains(sMatch[0]))
 							{
+								first = true;
+							}
+							if(s.contains(sMatch[1]))
+							{
+								second = true;
+							}
+							if(first && second)
+							{
+								first = false; second = false;
 								String[] rest = result.get(i).split(" ");
 								String out="";
 								for(String abc : rest)
@@ -272,7 +284,7 @@ public class FrameWork extends JFrame {
 				}
 				nameFrame.add(titleField2,BorderLayout.NORTH);
 				nameFrame.add(resultField2,BorderLayout.CENTER);
-				nameFrame.setSize(300, 300);
+				//nameFrame.setSize(400, 1000);
 				nameFrame.pack();
 				nameFrame.setVisible(true);
 			}
