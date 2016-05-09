@@ -16,6 +16,7 @@ public class filePresenter {
 	public ArrayList<String> quickSortList = new ArrayList<String>();
 	public ArrayList<String> heapSorterList = new ArrayList<String>();
 	public ArrayList<String> binaryPeopleList = new ArrayList<String>();
+	public ArrayList<String> binaryList = new ArrayList<String>();
 	
 	//This is the class that will handle the model <-> UI communication
 	void loadfileReader()
@@ -25,7 +26,6 @@ public class filePresenter {
 		
 		firstFileList = fileReader.storeAllList;
 		
-
 		mergeSortList = MergeSorter.mergeSort(hashingPeople.getPersonArray());
 		quickSortList = QuickSorter.quicksort(hashingPeople.getPersonArray());
 		heapSorterList = HeapSorter.heapSort(hashingPeople.getPersonArray());
@@ -35,6 +35,9 @@ public class filePresenter {
 		binaryPeople.build(hashingPeople.getPersonArray());
 		
 		//resultCheck = binaryPeople.containString(view.matchResult);
+		
+		binaryList = binaryPeople.alphabetize();
+
 
 	}
 	

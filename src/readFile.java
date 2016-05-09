@@ -38,8 +38,6 @@ public class readFile {
 
 							Person p = new Person(name, age, wt, ht, gender, hrt);
 							Hashing.hash(p); //person added to people array
-							
-
 						}
 
 						wd.close();

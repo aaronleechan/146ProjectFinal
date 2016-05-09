@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Stack;
 
 public class BST implements Comparator<String> {
 	
@@ -26,15 +28,14 @@ public class BST implements Comparator<String> {
 		return root == null;
 	}
 	
-	public boolean containString(String x)
-	{
+//	public boolean contains(Person x){
+//		return contains(x.getName(), root);
+//	}
+	
+	public boolean contains(String x){
 		return contains(x, root);
-			
 	}
 	
-	public boolean contains(Person x){
-		return contains(x.getName(), root);
-	}
 	/*
 	 * contains method returns true when Person's name exists in tree
 	 */
@@ -42,6 +43,7 @@ public class BST implements Comparator<String> {
 		if(t == null)	return false;
 		//compares x name to name of t
 		int comparison = compare(x, t.ele.getName());
+		//int comparison = x.compareTo(t.ele.getName());
 		
 		if(comparison < 0)	return contains(x, t.left);
 		else if(comparison > 0)		return contains(x, t.right);
@@ -76,7 +78,7 @@ public class BST implements Comparator<String> {
 			return new Node<Person>(x, null, null);
 		//compares x name to name of t
 		int comparison = compare(x.getName(), t.ele.getName());
-		
+		//int comparison = x.getName().compareTo(t.ele.getName());
 		if(comparison < 0)
 			t.left = insert(x, t.left);
 		else if(comparison > 0)
@@ -92,12 +94,53 @@ public class BST implements Comparator<String> {
 		}
 	}
 	
+	public ArrayList<String> alphabetize(){
+		ArrayList<String> ppl = alphabetize(root);
+		return ppl;
+	}
+	
+	private ArrayList<String> alphabetize(Node<Person> n){
+		ArrayList<String> arr = new ArrayList<String>();
+		Stack<Node> stk = new Stack<Node>();
+		while(!stk.isEmpty() || n!=null){
+			if(n != null){
+				stk.push(n);
+				n = n.left; 
+			}
+			else{
+				n = stk.pop();
+				arr.add(n.ele.toString());
+				n = n.right;
+			}
+		}
+		return arr;
+	}
+	
 //		for testing	
 //	public static void main(String[] args){
 //		BST b = new BST();
-//		b.insert("Penny");
-//		b.insert("Penne");
-//		b.insert("Penna");
-//		System.out.print(b.contains("Penna"));
+//
+//		Person a = new Person("Felicia Norman", 243, 55, 18, "F", 69);
+//		Person v = new Person("Felicia Boone", 23, 23, 23, "F", 23);
+//		Person c = new Person("Jessica Powers", 98, 60, 30, "F", 88);
+//		Person m = new Person("Joyce Cruz", 243, 55, 18, "F", 69);
+//		Person d = new Person("Shawn P", 23, 23, 23, "F", 23);
+//		Person o = new Person("Terrance T", 98, 60, 30, "F", 88);
+//		
+//		
+//		Hashing.hash(a);
+//		Hashing.hash(v);
+//		Hashing.hash(c);
+//		Hashing.hash(m);
+//		Hashing.hash(d);
+//		Hashing.hash(o);
+//		
+//		b.build(Hashing.getPersonArray());
+//		System.out.println(b.contains("Joyce Cruz"));
+//		ArrayList<String> str = b.alphabetize();
+//		
+//		for(String s: str){
+//			System.out.println(s);
+//		}
 //	}
 }

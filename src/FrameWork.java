@@ -11,6 +11,8 @@ public class FrameWork extends JFrame {
 	
 	ArrayList<String> result = new ArrayList<String>();
 	ArrayList<String> resultValue = new ArrayList<String>();
+	ArrayList<String> resultBinary = new ArrayList<String>();
+	
 	JPanel resultField;
 	JPanel resultFieldColumn;
 	JPanel resultField2;
@@ -58,14 +60,18 @@ public class FrameWork extends JFrame {
 
 		resultField = new JPanel();
 		resultField.setLayout(new GridLayout(row,column));
+		
+		
+		
+		
         
 
-		// Merge Sort weight
+		// Sort by Id, Original 
 				JButton original = new JButton("Sort by id");
 				buttonKeys.add(original);
 				original.addActionListener(new ActionListener() {
 					
-					@Override
+
 					public void actionPerformed(ActionEvent e) {
 						
 						resultValue.clear();
@@ -103,8 +109,7 @@ public class FrameWork extends JFrame {
 		JButton quickSortButton = new JButton("Height Sort");
 		buttonKeys.add(quickSortButton);
 		quickSortButton.addActionListener(new ActionListener() {
-			
-			@Override
+
 			public void actionPerformed(ActionEvent e) {
 				
 				resultValue.clear();
@@ -140,7 +145,6 @@ public class FrameWork extends JFrame {
 		buttonKeys.add(heapSortButton);
 		heapSortButton.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				resultValue.clear();
@@ -179,9 +183,16 @@ public class FrameWork extends JFrame {
 		mergeSortButton.addActionListener(new ActionListener() {
 			
 
-			@Override
-			public void actionPerformed(ActionEvent e) {		
-				resultValue.clear();	
+
+//			@Override
+//			public void actionPerformed(ActionEvent e) {		
+//				resultValue.clear();	
+
+			public void actionPerformed(ActionEvent e) {
+				
+				resultValue.clear();
+				
+
 				result = presenter.mergeSortList;
 				resultField.repaint();
 				resultField = new JPanel();
@@ -216,7 +227,6 @@ public class FrameWork extends JFrame {
 		buttonKeys.add(searchButton);
 		searchButton.addActionListener(new ActionListener(){
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				
@@ -241,9 +251,9 @@ public class FrameWork extends JFrame {
 				binaryPeople.build(hashingPeople.getPersonArray());
 				int count = 0;
 				matchResult = searchBar.getText();
-				System.out.println(binaryPeople.containString(matchResult));
+				System.out.println(binaryPeople.contains(matchResult));
 				String[] sMatch = matchResult.split(" ");
-				if( binaryPeople.containString(matchResult))
+				if( binaryPeople.contains(matchResult))
 				{
 
 					for(int i = 0; i < result.size(); i++)
@@ -322,7 +332,8 @@ public class FrameWork extends JFrame {
 		theFrame.add(titleField,BorderLayout.NORTH);		
 		try{ theFrame.add(resultField, BorderLayout.CENTER);}
 		catch(Exception e){	e.printStackTrace(); }
-		theFrame.setSize(800, 900);
+		//theFrame.setSize(800, 900);
+		theFrame.pack();
 		theFrame.setVisible(true);
 
 	}
