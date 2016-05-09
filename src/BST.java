@@ -100,8 +100,8 @@ public class BST implements Comparator<String> {
 	}
 	
 	private ArrayList<String> alphabetize(Node<Person> n){
-		ArrayList<String> arr = new ArrayList<>();
-		Stack<Node> stk = new Stack<>();
+		ArrayList<String> arr = new ArrayList<String>();
+		Stack<Node> stk = new Stack<Node>();
 		while(!stk.isEmpty() || n!=null){
 			if(n != null){
 				stk.push(n);

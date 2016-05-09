@@ -66,7 +66,6 @@ public class FrameWork extends JFrame {
 				original.addActionListener(new ActionListener() {
 					
 
-					@Override
 					public void actionPerformed(ActionEvent e) {
 						
 						resultValue.clear();
@@ -105,7 +104,6 @@ public class FrameWork extends JFrame {
 		buttonKeys.add(quickSortButton);
 		quickSortButton.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				resultValue.clear();
@@ -143,7 +141,6 @@ public class FrameWork extends JFrame {
 		buttonKeys.add(heapSortButton);
 		heapSortButton.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				resultValue.clear();
@@ -182,7 +179,6 @@ public class FrameWork extends JFrame {
 		mergeSortButton.addActionListener(new ActionListener() {
 			
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				resultValue.clear();
@@ -228,7 +224,6 @@ public class FrameWork extends JFrame {
 		buttonKeys.add(searchButton);
 		searchButton.addActionListener(new ActionListener(){
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<String> sou = new ArrayList<String>();
 				BST binaryPeople = new BST();

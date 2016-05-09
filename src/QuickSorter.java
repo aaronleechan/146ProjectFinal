@@ -8,7 +8,7 @@ public class QuickSorter {
 		Person[] result = a.clone();
 		quicksort(result, 0, result.length - 1);
 		
-	    ArrayList<String> ResultList = new ArrayList<>();
+	    ArrayList<String> ResultList = new ArrayList<String>();
 		for(Person p: result) ResultList.add(p.toString());
 		return ResultList;
 	}
