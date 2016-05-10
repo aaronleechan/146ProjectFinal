@@ -18,6 +18,8 @@ public class FrameWork extends JFrame {
 	JPanel resultField2;
 	JLabel comeOut;
 	JLabel comeOut2;
+	JPanel sideBar;
+	JScrollPane scrollPane;
 	boolean checkName = false;
 	Hashing hashingPeople;
 	public String matchResult;
@@ -59,12 +61,8 @@ public class FrameWork extends JFrame {
 		}
 
 		resultField = new JPanel();
-		resultField.setLayout(new GridLayout(row,column));
+		resultField.setLayout(new GridLayout(row,column,100,0));
 		
-		
-		
-		
-        
 
 		// Sort by Id, Original 
 				JButton original = new JButton("Sort by id");
@@ -95,8 +93,71 @@ public class FrameWork extends JFrame {
 						{
 							comeOut = new JLabel();
 							comeOut.setText(resultValue.get(i));
+							//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+							comeOut.getBounds();
 							resultField.add(comeOut);
+							
 						}
+						//sideBar = new JPanel();
+						//sideBar.setLayout(new BorderLayout());
+						//scrollPane = new JScrollPane(resultField);
+						//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+						//sideBar.add(scrollPane);
+						
+						
+//						theFrame.add(scrollPane,BorderLayout.CENTER);
+						
+						theFrame.add(resultField, BorderLayout.CENTER);
+						theFrame.setVisible(true);
+						// TODO Auto-generated method stub
+					}
+
+				});
+				
+				
+				
+		// Sort by Name	
+				JButton original2 = new JButton("Sort by Name");
+				buttonKeys.add(original2);
+				original2.addActionListener(new ActionListener() {
+					
+					public void actionPerformed(ActionEvent e) {
+						
+						resultValue.clear();
+						
+						result = presenter.binaryList;
+						resultField.repaint();
+						resultField = new JPanel();
+				
+						resultField.setLayout(new GridLayout(row,column));	
+						
+						for(int i = 0; i < result.size(); i++)
+						{
+//							System.out.println(result.get(i) + " WWW ");
+							String[] s = result.get(i).split(" ");
+							for(String sS : s)
+							{
+								resultValue.add(sS);
+							}
+						}
+						
+						for(int i = 0; i < resultValue.size(); i++)
+						{
+							comeOut = new JLabel();
+							comeOut.setText(resultValue.get(i));
+							//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+							comeOut.getBounds();
+							resultField.add(comeOut);
+							
+						}
+						//sideBar = new JPanel();
+						//sideBar.setLayout(new BorderLayout());
+						//scrollPane = new JScrollPane(resultField);
+						//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+						//sideBar.add(scrollPane);
+						
+						
+//						theFrame.add(scrollPane,BorderLayout.CENTER);
 						
 						theFrame.add(resultField, BorderLayout.CENTER);
 						theFrame.setVisible(true);
@@ -132,8 +193,18 @@ public class FrameWork extends JFrame {
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
+					//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+					comeOut.getBounds();
 					resultField.add(comeOut);
 				}		
+				//sideBar = new JPanel();
+				//sideBar.setLayout(new BorderLayout());
+				//scrollPane = new JScrollPane(resultField);
+				//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+				//sideBar.add(scrollPane);
+				
+				
+//				theFrame.add(scrollPane,BorderLayout.CENTER);
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
@@ -168,9 +239,18 @@ public class FrameWork extends JFrame {
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
+					//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+					comeOut.getBounds();
 					resultField.add(comeOut);
 				}
+				//sideBar = new JPanel();
+				//sideBar.setLayout(new BorderLayout());
+				//scrollPane = new JScrollPane(resultField);
+				//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+				//sideBar.add(scrollPane);
 				
+				
+				//theFrame.add(scrollPane,BorderLayout.CENTER);		
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
@@ -182,11 +262,7 @@ public class FrameWork extends JFrame {
 		buttonKeys.add(mergeSortButton);
 		mergeSortButton.addActionListener(new ActionListener() {
 			
-
-
-//			@Override
-//			public void actionPerformed(ActionEvent e) {		
-//				resultValue.clear();	
+	
 
 			public void actionPerformed(ActionEvent e) {
 				
@@ -209,8 +285,18 @@ public class FrameWork extends JFrame {
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
+					comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+					comeOut.getBounds();
 					resultField.add(comeOut);
-				}		
+				}	
+				//sideBar = new JPanel();
+				//sideBar.setLayout(new BorderLayout());
+				//scrollPane = new JScrollPane(resultField);
+				//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+				//sideBar.add(scrollPane);
+				
+				
+				//theFrame.add(scrollPane,BorderLayout.CENTER);
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
@@ -219,7 +305,6 @@ public class FrameWork extends JFrame {
 		
 		final JFrame nameFrame = new JFrame(" RESULT ");
 		nameFrame.setLayout(new BorderLayout());
-		final JLabel res = new JLabel();
 			
 		final JTextField searchBar = new JTextField("Enter Name", 10);
 		buttonKeys.add(searchBar);
@@ -297,6 +382,7 @@ public class FrameWork extends JFrame {
 					comeOut2 = new JLabel();
 					comeOut2.setText("There is no match found");
 					resultField2.add(comeOut2);
+					resultField2.setPreferredSize(getPreferredSize());
 				}
 				nameFrame.add(titleField2,BorderLayout.NORTH);
 				nameFrame.add(resultField2,BorderLayout.CENTER);
@@ -319,20 +405,25 @@ public class FrameWork extends JFrame {
 		for(int i = 0; i < resultValue.size(); i++)
 		{
 			comeOut = new JLabel(resultValue.get(i));
+			//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+			comeOut.getBounds();
 			resultField.add(comeOut);
 		}
 		
-		JPanel sideBar = new JPanel();
-		sideBar.setLayout(new BorderLayout(0,0));
-		JScrollPane scrollPane = new JScrollPane(resultField);
-		sideBar.add(scrollPane);
+		//sideBar = new JPanel();
+		//sideBar.setLayout(new BorderLayout());
+		//scrollPane = new JScrollPane(resultField);
 		
-		theFrame.add(sideBar,BorderLayout.CENTER);
+		//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		//sideBar.add(scrollPane);
+		
+		
+//		theFrame.add(scrollPane,BorderLayout.CENTER);
 		theFrame.add(buttonKeys, BorderLayout.SOUTH);
 		theFrame.add(titleField,BorderLayout.NORTH);		
 		try{ theFrame.add(resultField, BorderLayout.CENTER);}
 		catch(Exception e){	e.printStackTrace(); }
-		//theFrame.setSize(800, 900);
+		theFrame.setSize(800, 900);
 		theFrame.pack();
 		theFrame.setVisible(true);
 

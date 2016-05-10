@@ -37,7 +37,11 @@ public class filePresenter {
 		//resultCheck = binaryPeople.containString(view.matchResult);
 		
 		binaryList = binaryPeople.alphabetize();
-
+		
+//		for(int i = 0; i < binaryList.size(); i++)
+//		{
+//			System.out.println(binaryList.get(i) + " WHWH ");
+//		}
 
 	}
 	

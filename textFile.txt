@@ -44,3 +44,7 @@ Eugene		Thomas		124	56	46	M	100
 Marianne	Mcbride		115	65	39	F	63
 Pedro		Freeman		228	58	35	M	96
 Cecilia		Cook		240	51	59	F	97
+Elsy	Brubaker	117	45	84	F	100
+Monet	Mayes	184	45	37	F	100
+Freida	Snell	228	45	89	F	100
+Tyisha	Haley	115	45	73	F	100
