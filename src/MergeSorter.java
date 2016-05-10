@@ -23,6 +23,7 @@ public class MergeSorter {
 		if (array.length <= 1) {
 			return;
 		}
+		//dividing in half
 		Person[] first = new Person[array.length / 2];
 		Person[] second = new Person[array.length - first.length];
 		for (int i = 0; i < first.length; i++) {
