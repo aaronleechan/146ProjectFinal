@@ -29,19 +29,10 @@ public class filePresenter {
 		mergeSortList = MergeSorter.mergeSort(hashingPeople.getPersonArray());
 		quickSortList = QuickSorter.quicksort(hashingPeople.getPersonArray());
 		heapSorterList = HeapSorter.heapSort(hashingPeople.getPersonArray());
-	
-		//hashingPeople.getPersonArray();
-		
+			
 		binaryPeople.build(hashingPeople.getPersonArray());
 		
-		//resultCheck = binaryPeople.containString(view.matchResult);
-		
 		binaryList = binaryPeople.alphabetize();
-		
-//		for(int i = 0; i < binaryList.size(); i++)
-//		{
-//			System.out.println(binaryList.get(i) + " WHWH ");
-//		}
 
 	}
 	

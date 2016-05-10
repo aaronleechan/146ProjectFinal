@@ -48,7 +48,6 @@ public class FrameWork extends JFrame {
 		theFrame.setLayout(new BorderLayout());
 
 		final JPanel buttonKeys = new JPanel(new FlowLayout());
-		//buttonKeys.add(new JLabel());
 		
 		// Title Print Out
 		final JPanel titleField = new JPanel();
@@ -65,12 +64,14 @@ public class FrameWork extends JFrame {
 		
 
 		// Sort by Id, Original 
+				
 				JButton original = new JButton("Sort by id");
 				buttonKeys.add(original);
 				original.addActionListener(new ActionListener() {
 					
 
 					public void actionPerformed(ActionEvent e) {
+						long startTime1 = System.currentTimeMillis();
 						
 						resultValue.clear();
 						
@@ -93,24 +94,19 @@ public class FrameWork extends JFrame {
 						{
 							comeOut = new JLabel();
 							comeOut.setText(resultValue.get(i));
-							//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
 							comeOut.getBounds();
 							resultField.add(comeOut);
 							
-						}
-						//sideBar = new JPanel();
-						//sideBar.setLayout(new BorderLayout());
-						//scrollPane = new JScrollPane(resultField);
-						//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-						//sideBar.add(scrollPane);
-						
-						
-//						theFrame.add(scrollPane,BorderLayout.CENTER);
-						
+						}						
 						theFrame.add(resultField, BorderLayout.CENTER);
 						theFrame.setVisible(true);
 						// TODO Auto-generated method stub
+						
+						long stopTime1 = System.currentTimeMillis();
+					    long elapsedTime1 = stopTime1 - startTime1;
+					    System.out.println(elapsedTime1 + " Running time arraylist");
 					}
+					
 
 				});
 				
@@ -122,6 +118,7 @@ public class FrameWork extends JFrame {
 				original2.addActionListener(new ActionListener() {
 					
 					public void actionPerformed(ActionEvent e) {
+						long startTime2 = System.currentTimeMillis();
 						
 						resultValue.clear();
 						
@@ -133,7 +130,6 @@ public class FrameWork extends JFrame {
 						
 						for(int i = 0; i < result.size(); i++)
 						{
-//							System.out.println(result.get(i) + " WWW ");
 							String[] s = result.get(i).split(" ");
 							for(String sS : s)
 							{
@@ -145,23 +141,19 @@ public class FrameWork extends JFrame {
 						{
 							comeOut = new JLabel();
 							comeOut.setText(resultValue.get(i));
-							//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
 							comeOut.getBounds();
 							resultField.add(comeOut);
 							
 						}
-						//sideBar = new JPanel();
-						//sideBar.setLayout(new BorderLayout());
-						//scrollPane = new JScrollPane(resultField);
-						//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-						//sideBar.add(scrollPane);
-						
-						
-//						theFrame.add(scrollPane,BorderLayout.CENTER);
 						
 						theFrame.add(resultField, BorderLayout.CENTER);
 						theFrame.setVisible(true);
 						// TODO Auto-generated method stub
+						
+						
+						long stopTime2 = System.currentTimeMillis();
+					    long elapsedTime2 = stopTime2 - startTime2;
+					    System.out.println(elapsedTime2 + " Running time binaryList");
 					}
 
 				});
@@ -172,6 +164,7 @@ public class FrameWork extends JFrame {
 		quickSortButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				long startTime3 = System.currentTimeMillis();
 				
 				resultValue.clear();
 				
@@ -193,21 +186,16 @@ public class FrameWork extends JFrame {
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
-					//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
 					comeOut.getBounds();
 					resultField.add(comeOut);
 				}		
-				//sideBar = new JPanel();
-				//sideBar.setLayout(new BorderLayout());
-				//scrollPane = new JScrollPane(resultField);
-				//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-				//sideBar.add(scrollPane);
-				
-				
-//				theFrame.add(scrollPane,BorderLayout.CENTER);
+
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
+				long stopTime3 = System.currentTimeMillis();
+			    long elapsedTime3 = stopTime3 - startTime3;
+			    System.out.println(elapsedTime3 + " Running time quickSort");
 			}
 		});
 		
@@ -217,6 +205,7 @@ public class FrameWork extends JFrame {
 		heapSortButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				long startTime4 = System.currentTimeMillis();
 				
 				resultValue.clear();
 				
@@ -239,21 +228,18 @@ public class FrameWork extends JFrame {
 				{
 					comeOut = new JLabel();
 					comeOut.setText(resultValue.get(i));
-					//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
+				
 					comeOut.getBounds();
 					resultField.add(comeOut);
 				}
-				//sideBar = new JPanel();
-				//sideBar.setLayout(new BorderLayout());
-				//scrollPane = new JScrollPane(resultField);
-				//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-				//sideBar.add(scrollPane);
 				
-				
-				//theFrame.add(scrollPane,BorderLayout.CENTER);		
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
+				
+				long stopTime4 = System.currentTimeMillis();
+			    long elapsedTime4 = stopTime4 - startTime4;
+			    System.out.println(elapsedTime4 + " Running time heapSortList");
 			}
 		});
 
@@ -265,6 +251,7 @@ public class FrameWork extends JFrame {
 	
 
 			public void actionPerformed(ActionEvent e) {
+				long startTime5 = System.currentTimeMillis();
 				
 				resultValue.clear();
 				
@@ -289,17 +276,13 @@ public class FrameWork extends JFrame {
 					comeOut.getBounds();
 					resultField.add(comeOut);
 				}	
-				//sideBar = new JPanel();
-				//sideBar.setLayout(new BorderLayout());
-				//scrollPane = new JScrollPane(resultField);
-				//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-				//sideBar.add(scrollPane);
-				
-				
-				//theFrame.add(scrollPane,BorderLayout.CENTER);
+
 				theFrame.add(resultField, BorderLayout.CENTER);
 				theFrame.setVisible(true);
 				// TODO Auto-generated method stub
+				long stopTime5 = System.currentTimeMillis();
+			    long elapsedTime5 = stopTime5 - startTime5;
+			    System.out.println(elapsedTime5 + " Running time mergeSort");
 			}
 		});
 		
@@ -313,7 +296,7 @@ public class FrameWork extends JFrame {
 		searchButton.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				
+				long startTime6 = System.currentTimeMillis();
 				
 				boolean first = false;
 				boolean second = false;
@@ -338,6 +321,11 @@ public class FrameWork extends JFrame {
 				matchResult = searchBar.getText();
 				System.out.println(binaryPeople.contains(matchResult));
 				String[] sMatch = matchResult.split(" ");
+				
+				long stopTime6 = System.currentTimeMillis();
+			    long elapsedTime6 = stopTime6 - startTime6;
+			    System.out.println(elapsedTime6 + " Running time Binary Search");
+			    
 				if( binaryPeople.contains(matchResult))
 				{
 
@@ -405,20 +393,11 @@ public class FrameWork extends JFrame {
 		for(int i = 0; i < resultValue.size(); i++)
 		{
 			comeOut = new JLabel(resultValue.get(i));
-			//comeOut.setFont(new Font(comeOut.getFont().getName(),comeOut.getFont().getStyle(), 10));
 			comeOut.getBounds();
 			resultField.add(comeOut);
 		}
 		
-		//sideBar = new JPanel();
-		//sideBar.setLayout(new BorderLayout());
-		//scrollPane = new JScrollPane(resultField);
-		
-		//scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		//sideBar.add(scrollPane);
-		
-		
-//		theFrame.add(scrollPane,BorderLayout.CENTER);
+
 		theFrame.add(buttonKeys, BorderLayout.SOUTH);
 		theFrame.add(titleField,BorderLayout.NORTH);		
 		try{ theFrame.add(resultField, BorderLayout.CENTER);}
